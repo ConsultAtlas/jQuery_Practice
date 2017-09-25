@@ -16,15 +16,23 @@
 
     */
     $(function() {
-      $("#add-button").click(function(){
 
+      var counter = 0;
+
+      $("#add-button").click(function(){
+        var idOfLiTag = 'liTag' + counter;
+        counter++;
         var removeButton = $("<button>X</button>");
         var content = $("#description").val();
-        var newLiTag = $("<li>"+content+"</li>");
+        var newLiTag = $("<li id='"+ idOfLiTag +"'>"+content+"</li>");
 
         newLiTag.append(removeButton);
 
         $("#todo-list").append(newLiTag);
+
+        removeButton.click(function(){
+          $("#todo-list").remove("#" + idOfLiTag);
+        });
       });
     });
 
