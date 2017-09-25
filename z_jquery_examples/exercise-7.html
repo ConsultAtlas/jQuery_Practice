@@ -17,13 +17,15 @@
     */
     $(function() {
       $("#add-button").click(function(){
-        var currentContent = $("#description").val();
-        var checkbox = $('<input id="checkBox" type="checkbox">');
-        var newElement = $("<li>"+currentContent+checkbox"</li>");
 
-        $("#todo-list").append(newElement);
+        var removeButton = $("<button>X</button>");
+        var content = $("#description").val();
+        var newLiTag = $("<li>"+content+"</li>");
+
+        newLiTag.append(removeButton);
+
+        $("#todo-list").append(newLiTag);
       });
-
     });
 
 
